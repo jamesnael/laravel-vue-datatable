@@ -1,10 +1,41 @@
-# laravel-vue-datatable
+<h1>laravel-vue-datatable</h1>
+
+<table style="border: 0;">
+<tbody>
+  <tr>
+    <td>
+      <svg width="50" height="52" viewBox="0 0 50 52" xmlns="http://www.w3.org/2000/svg"><title>Logomark</title><path d="M49.626 11.564a.809.809 0 0 1 .028.209v10.972a.8.8 0 0 1-.402.694l-9.209 5.302V39.25c0 .286-.152.55-.4.694L20.42 51.01c-.044.025-.092.041-.14.058-.018.006-.035.017-.054.022a.805.805 0 0 1-.41 0c-.022-.006-.042-.018-.063-.026-.044-.016-.09-.03-.132-.054L.402 39.944A.801.801 0 0 1 0 39.25V6.334c0-.072.01-.142.028-.21.006-.023.02-.044.028-.067.015-.042.029-.085.051-.124.015-.026.037-.047.055-.071.023-.032.044-.065.071-.093.023-.023.053-.04.079-.06.029-.024.055-.05.088-.069h.001l9.61-5.533a.802.802 0 0 1 .8 0l9.61 5.533h.002c.032.02.059.045.088.068.026.02.055.038.078.06.028.029.048.062.072.094.017.024.04.045.054.071.023.04.036.082.052.124.008.023.022.044.028.068a.809.809 0 0 1 .028.209v20.559l8.008-4.611v-10.51c0-.07.01-.141.028-.208.007-.024.02-.045.028-.068.016-.042.03-.085.052-.124.015-.026.037-.047.054-.071.024-.032.044-.065.072-.093.023-.023.052-.04.078-.06.03-.024.056-.05.088-.069h.001l9.611-5.533a.801.801 0 0 1 .8 0l9.61 5.533c.034.02.06.045.09.068.025.02.054.038.077.06.028.029.048.062.072.094.018.024.04.045.054.071.023.039.036.082.052.124.009.023.022.044.028.068zm-1.574 10.718v-9.124l-3.363 1.936-4.646 2.675v9.124l8.01-4.611zm-9.61 16.505v-9.13l-4.57 2.61-13.05 7.448v9.216l17.62-10.144zM1.602 7.719v31.068L19.22 48.93v-9.214l-9.204-5.209-.003-.002-.004-.002c-.031-.018-.057-.044-.086-.066-.025-.02-.054-.036-.076-.058l-.002-.003c-.026-.025-.044-.056-.066-.084-.02-.027-.044-.05-.06-.078l-.001-.003c-.018-.03-.029-.066-.042-.1-.013-.03-.03-.058-.038-.09v-.001c-.01-.038-.012-.078-.016-.117-.004-.03-.012-.06-.012-.09v-.002-21.481L4.965 9.654 1.602 7.72zm8.81-5.994L2.405 6.334l8.005 4.609 8.006-4.61-8.006-4.608zm4.164 28.764l4.645-2.674V7.719l-3.363 1.936-4.646 2.675v20.096l3.364-1.937zM39.243 7.164l-8.006 4.609 8.006 4.609 8.005-4.61-8.005-4.608zm-.801 10.605l-4.646-2.675-3.363-1.936v9.124l4.645 2.674 3.364 1.937v-9.124zM20.02 38.33l11.743-6.704 5.87-3.35-8-4.606-9.211 5.303-8.395 4.833 7.993 4.524z" fill="#FF2D20" fill-rule="evenodd"/></svg>
+    </td>
+    <td>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/></svg>
+    </td>
+    <td>
+      <svg height="52" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 261.76 226.69"><path d="M161.096.001l-30.225 52.351L100.647.001H-.005l130.877 226.688L261.749.001z" fill="#41b883"/><path d="M161.096.001l-30.225 52.351L100.647.001H52.346l78.526 136.01L209.398.001z" fill="#34495e"/></svg>
+      <svg height="52" viewBox="0 0 248 31" class="w-auto h-6"><path fill-rule="evenodd" clip-rule="evenodd" d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.145-2.551 3.382-5.528 4.65-8.93 3.804-1.942-.482-3.33-1.882-4.865-3.431C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.93-3.805 1.942.482 3.33 1.882 4.865 3.432 2.502 2.524 5.397 5.445 11.722 5.445 6.804 0 11.057-3.381 12.758-10.145-2.552 3.382-5.529 4.65-8.931 3.805-1.941-.483-3.329-1.883-4.864-3.432-2.502-2.524-5.398-5.446-11.722-5.446z" fill="#06B6D4"></path></svg>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
 
 Laravel datatable wrapper with Vue JS and Tailwind CSS.
 
 <br><br>
 
-- [laravel-vue-datatable](#laravel-vue-datatable)
+<h1>IMPORTANT !!!</h1>
+
+<h3>
+
+If you migrate from [vue-laravel-tablewind](https://github.com/razztyfication/vue-laravel-tablewind) please read the [changelog](https://github.com/razztyfication/laravel-vue-datatable/blob/master/CHANGELOG.md) first.
+</h3>
+
+<br><br>
+
+<h1>Table of Contents</h1>
+
 - [Installation](#installation)
 - [Usage](#usage)
   - [v-model](#v-model)
@@ -36,7 +67,7 @@ Then add it to your component files
 
 <template>
   <LaravelTablewind
-    data-uri="https:://mydomain.com/table"
+    route="https:://mydomain.com/table"
     :columns.sync="columns"
   />
 </template>
@@ -50,6 +81,25 @@ export default {
   components: {
     LaravelTablewind,
   },
+  data() {
+    return {
+      columns: [
+        {
+          uniqid: 'firstName',
+          label: 'Full Name',
+          field: 'first_name',
+          visible: true,
+          sortable: true,
+          sortOrder: 'asc',
+          align: 'center',
+          format: (val, row) => `${val} ${row.last_name}`,
+          classes: 'py-2 font-bold text-blue-600',
+          headerClass: 'py-4',
+        },
+        ...
+      ]
+    }
+  }
   ...
 }
 </script>
@@ -79,12 +129,12 @@ export default {
 ```html
 <template>
   <LaravelTablewind
-    data-uri="https:://mydomain.com/table"
+    route="https:://mydomain.com/table"
     :columns.sync="columns"
   />
 </template>
 ```
-Please refer to <a href="#columns-props">**columns**</a> props for detailed usage and explanation.
+Please refer to [`columns`](#columns-props) props for detailed usage and explanation.
 </td>
 </tr>
 <tr>
@@ -96,7 +146,7 @@ Please refer to <a href="#columns-props">**columns**</a> props for detailed usag
 ```html
 <template>
   <LaravelTablewind
-    data-uri="https:://mydomain.com/table"
+    route="https:://mydomain.com/table"
     v-model:columns="columns"
     with-select
     :checked.sync="yourCheckedModel"
@@ -104,7 +154,7 @@ Please refer to <a href="#columns-props">**columns**</a> props for detailed usag
   />
 </template>
 ```
-Used for get selected row if you use <strong>with-select</strong> props.
+Used for get selected row if you use `with-select` props.
 </td>
 </tr>
 </tbody>
@@ -130,7 +180,7 @@ Used for get selected row if you use <strong>with-select</strong> props.
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>data-uri</strong></td>
+<td><strong>route</strong></td>
 <td align="center"><em>String</em></td>
 <td align="center"><strong>Yes</strong></td>
 <td align="center"></td>
@@ -145,7 +195,7 @@ Used for get selected row if you use <strong>with-select</strong> props.
 `[]`
 </td>
 <td>
-Add your custom query parameters to add it to <strong>data-uri</strong> before get data from your server.
+Add your custom query parameters to add it to <strong>route</strong> before get data from your server.
 
 ```json
 query="foo=bar&hello=world"
@@ -239,7 +289,7 @@ Generate table caption with `<caption>` tag
 </td>
 </tr>
 <tr>
-<td><strong>header-class</strong></td>
+<td><strong>thead-class</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td>
@@ -272,7 +322,7 @@ Generate table caption with `<caption>` tag
 </td>
 </tr>
 <tr>
-<td><strong>header-style</strong></td>
+<td><strong>thead-style</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td align="center"></td>
@@ -340,12 +390,12 @@ Generate table caption with `<caption>` tag
 </td>
 </tr>
 <tr>
-<td><strong>loader</strong></td>
+<td><strong>disable-loader</strong></td>
 <td align="center"><em>Boolean</em></td>
 <td align="center">Optional</td>
 <td align="center">
 
-`true`</td>
+`false`</td>
 <td></td>
 </tr>
 <tr>
@@ -676,7 +726,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>disable-refresh-btn</strong></td>
+<td><strong>disable-reload-button</strong></td>
 <td align="center"><em>Boolean</em></td>
 <td align="center">Optional</td>
 <td align="center">
@@ -685,7 +735,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>refresh-btn-label</strong></td>
+<td><strong>reload-button-label</strong></td>
 <td align="center"><em>String</em></td>
 <td align="center">Optional</td>
 <td align="center">
@@ -694,7 +744,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>refresh-btn-class</strong></td>
+<td><strong>reload-button-class</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td>
@@ -735,7 +785,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>refresh-btn-style</strong></td>
+<td><strong>reload-button-style</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td align="center"></td>
@@ -987,7 +1037,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>disable-goto-first-nav</strong></td>
+<td><strong>disable-first-page-button</strong></td>
 <td align="center"><em>Boolean</em></td>
 <td align="center">Optional</td>
 <td align="center">
@@ -996,7 +1046,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>goto-first-nav-class</strong></td>
+<td><strong>first-page-button-class</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td>
@@ -1037,7 +1087,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>goto-first-nav-style</strong></td>
+<td><strong>first-page-button-style</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td align="center"></td>
@@ -1063,7 +1113,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>disable-goto-last-nav</strong></td>
+<td><strong>disable-last-page-button</strong></td>
 <td align="center"><em>Boolean</em></td>
 <td align="center">Optional</td>
 <td align="center">
@@ -1072,7 +1122,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>goto-last-nav-class</strong></td>
+<td><strong>last-page-button-class</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td>
@@ -1113,7 +1163,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>goto-last-nav-style</strong></td>
+<td><strong>last-page-button-style</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td align="center"></td>
@@ -1139,7 +1189,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>disable-goto-prev-nav</strong></td>
+<td><strong>disable-previous-page-button</strong></td>
 <td align="center"><em>Boolean</em></td>
 <td align="center">Optional</td>
 <td align="center">
@@ -1148,7 +1198,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>goto-prev-nav-class</strong></td>
+<td><strong>previous-page-button-class</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td>
@@ -1189,7 +1239,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>goto-prev-nav-style</strong></td>
+<td><strong>previous-page-button-style</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td align="center"></td>
@@ -1215,7 +1265,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>disable-goto-next-nav</strong></td>
+<td><strong>disable-next-page-button</strong></td>
 <td align="center"><em>Boolean</em></td>
 <td align="center">Optional</td>
 <td align="center">
@@ -1224,7 +1274,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>goto-next-nav-class</strong></td>
+<td><strong>next-page-button-class</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td>
@@ -1265,7 +1315,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 </tr>
 <tr>
-<td><strong>goto-next-nav-style</strong></td>
+<td><strong>next-page-button-style</strong></td>
 <td align="center">[ <em>String, Array, Object</em> ]</td>
 <td align="center">Optional</td>
 <td align="center"></td>
@@ -1615,7 +1665,7 @@ Used if you want to add content left of search field on tablet and desktop and t
 <table width="100%">
 <thead>
 <tr>
-<th>iconSearch</th>
+<th>icon.search</th>
 </tr>
 </thead>
 <tbody>
@@ -1630,7 +1680,7 @@ Slot for search field icon
 <td>
 
 ```html
-<template #iconSearch>
+<template #icon.search>
   <svg class="w-4 h-4 absolute left-2.5 top-3.5 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
   </svg>
@@ -1644,7 +1694,7 @@ Slot for search field icon
 <table width="100%">
 <thead>
 <tr>
-<th>afterSearch</th>
+<th>after.search</th>
 </tr>
 </thead>
 <tbody>
@@ -1659,7 +1709,7 @@ Used if you want to add content right of search field on tablet and desktop and 
 <td>
 
 ```html
-<template #afterSearch>
+<template #after.search>
   This will render on the right of search field
 </template>
 ```
@@ -1672,7 +1722,7 @@ Used if you want to add content right of search field on tablet and desktop and 
 <table width="100%">
 <thead>
 <tr>
-<th>beforeButton</th>
+<th>before.reload-button</th>
 </tr>
 </thead>
 <tbody>
@@ -1687,7 +1737,7 @@ Used if you want to add content left of reload button on tablet and desktop and 
 <td>
 
 ```html
-<template #beforeButton>
+<template #before.reload-button>
   This will render on the left of reload button
 </template>
 ```
@@ -1699,7 +1749,7 @@ Used if you want to add content left of reload button on tablet and desktop and 
 <table width="100%">
 <thead>
 <tr>
-<th>labelReloadBtn</th>
+<th>label.reload-button</th>
 </tr>
 </thead>
 <tbody>
@@ -1714,7 +1764,7 @@ Slot to customize label reload button
 <td>
 
 ```html
-<template #labelReloadBtn>
+<template #label.reload-button>
   <div class="flex flex-row items-center">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="current-stroke stroke-2 text-white" viewBox="0 0 16 16">
       <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
@@ -1733,7 +1783,7 @@ Slot to customize label reload button
 <table width="100%">
 <thead>
 <tr>
-<th>afterButton</th>
+<th>after.reload-button</th>
 </tr>
 </thead>
 <tbody>
@@ -1748,7 +1798,7 @@ Used if you want to add content right of reload button on tablet and desktop and
 <td>
 
 ```html
-<template #afterButton>
+<template #after.reload-button>
   This will render on the right of reload button
 </template>
 ```
@@ -1760,7 +1810,7 @@ Used if you want to add content right of reload button on tablet and desktop and
 <table width="100%">
 <thead>
 <tr>
-<th>labelNoRecord</th>
+<th>label.no-record</th>
 </tr>
 </thead>
 <tbody>
@@ -1775,7 +1825,7 @@ Used to customize text when no data found in table
 <td>
 
 ```html
-<template #labelNoRecord>
+<template #label.no-record>
   <p class="font-bold text-lg text-red-600">Oops, sorry we cannot find any matching data.</p>
 </template>
 ```
@@ -1821,7 +1871,7 @@ Used to customize loader inside table
 <table width="100%">
 <thead>
 <tr>
-<th>beforePaginationLabel</th>
+<th>before.pagination-label</th>
 </tr>
 </thead>
 <tbody>
@@ -1836,7 +1886,7 @@ Used if you want to add content left of pagination label on tablet and desktop a
 <td>
 
 ```html
-<template #beforePaginationLabel>
+<template #before.pagination-label>
   This will render on the left of pagination label
 </template>
 ```
@@ -1849,7 +1899,7 @@ Used if you want to add content left of pagination label on tablet and desktop a
 <table width="100%">
 <thead>
 <tr>
-<th>paginationLabel</th>
+<th>label.pagination</th>
 </tr>
 </thead>
 <tbody>
@@ -1869,7 +1919,7 @@ Used to show count of data in table.
 <td>
 
 ```html
-<template #paginationLabel="{ from, to, total }">
+<template #label.pagination="{ from, to, total }">
   <span class="text-bold">Showing {{ from }} - {{ to }} from total {{ total }} data.</span>
 </template>
 ```
@@ -1881,7 +1931,7 @@ Used to show count of data in table.
 <table width="100%">
 <thead>
 <tr>
-<th>afterPaginationLabel</th>
+<th>after.pagination-label</th>
 </tr>
 </thead>
 <tbody>
@@ -1897,7 +1947,7 @@ Used if you want to add content right of pagination label on tablet and desktop 
 <td>
 
 ```html
-<template #afterPaginationLabel>
+<template #after.pagination-label>
   This will render on the right of pagination label
 </template>
 ```
@@ -1910,7 +1960,7 @@ Used if you want to add content right of pagination label on tablet and desktop 
 <table width="100%">
 <thead>
 <tr>
-<th>beforeNavigation</th>
+<th>before.navigation</th>
 </tr>
 </thead>
 <tbody>
@@ -1925,7 +1975,7 @@ Used if you want to add content left of navigation button on tablet and desktop 
 <td>
 
 ```html
-<template #beforeNavigation>
+<template #before.navigation>
   This will render on the left of navigation bar
 </template>
 ```
@@ -1937,7 +1987,7 @@ Used if you want to add content left of navigation button on tablet and desktop 
 <table width="100%">
 <thead>
 <tr>
-<th>afterNavigation</th>
+<th>	after.navigation</th>
 </tr>
 </thead>
 <tbody>
@@ -1952,7 +2002,7 @@ Used if you want to add content right of navigation button on tablet and desktop
 <td>
 
 ```html
-<template #afterNavigation>
+<template #	after.navigation>
   This will render on the right of navigation bar
 </template>
 ```
@@ -1965,7 +2015,7 @@ Used if you want to add content right of navigation button on tablet and desktop
 <table width="100%">
 <thead>
 <tr>
-<th>labelRowsPerPage</th>
+<th>label.rows-per-page</th>
 </tr>
 </thead>
 <tbody>
@@ -1980,7 +2030,7 @@ Used to customize text data per page.
 <td>
 
 ```html
-<template #labelRowsPerPage>
+<template #label.rows-per-page>
   <span class="text-bold">Data per page:</span>
 </template>
 ```
@@ -1992,7 +2042,7 @@ Used to customize text data per page.
 <table width="100%">
 <thead>
 <tr>
-<th>iconFirstNavBtn</th>
+<th>icon.navigation.first-page-button</th>
 </tr>
 </thead>
 <tbody>
@@ -2007,7 +2057,7 @@ Used to customize icon inside first page navigation button
 <td>
 
 ```html
-<template #iconFirstNavBtn>
+<template #icon.navigation.first-page-button>
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="stroke-current stroke-2" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
   </svg>
@@ -2022,7 +2072,7 @@ Used to customize icon inside first page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>iconPrevNavBtn</th>
+<th>icon.navigation.previous-page-button</th>
 </tr>
 </thead>
 <tbody>
@@ -2037,7 +2087,7 @@ Used to customize icon inside previous page navigation button
 <td>
 
 ```html
-<template #iconPrevNavBtn>
+<template #icon.navigation.previous-page-button>
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="stroke-current stroke-2" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
   </svg>
@@ -2051,7 +2101,7 @@ Used to customize icon inside previous page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>iconNextNavBtn</th>
+<th>icon.navigation.next-page-button</th>
 </tr>
 </thead>
 <tbody>
@@ -2066,7 +2116,7 @@ Used to customize icon inside next page navigation button
 <td>
 
 ```html
-<template #iconNextNavBtn>
+<template #icon.navigation.next-page-button>
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="stroke-current stroke-2" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
   </svg>
@@ -2081,7 +2131,7 @@ Used to customize icon inside next page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>iconLastNavBtn</th>
+<th>icon.navigation.last-page-button</th>
 </tr>
 </thead>
 <tbody>
@@ -2096,7 +2146,7 @@ Used to customize icon inside last page navigation button
 <td>
 
 ```html
-<template #iconLastNavBtn>
+<template #icon.navigation.last-page-button>
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="stroke-current stroke-2" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
   </svg>
@@ -2139,7 +2189,7 @@ Footer content of your table
 <table width="100%">
 <thead>
 <tr>
-<th>iconAscending</th>
+<th>icon.ascending</th>
 </tr>
 </thead>
 <tbody>
@@ -2154,7 +2204,7 @@ Used to customize icon for ascending icon if you used sortable
 <td>
 
 ```html
-<template #iconAscending>
+<template #icon.ascending>
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="current-stroke stroke-2" viewBox="0 0 16 16">
     <path d="M3.5 3.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 12.293V3.5zm4 .5a.5.5 0 0 1 0-1h1a.5.5 0 0 1 0 1h-1zm0 3a.5.5 0 0 1 0-1h3a.5.5 0 0 1 0 1h-3zm0 3a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1h-5zM7 12.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5z"/>
   </svg>
@@ -2169,7 +2219,7 @@ Used to customize icon for ascending icon if you used sortable
 <table width="100%">
 <thead>
 <tr>
-<th>iconDescending</th>
+<th>icon.descending</th>
 </tr>
 </thead>
 <tbody>
@@ -2184,7 +2234,7 @@ Used to customize icon for descending icon if you used sortable
 <td>
 
 ```html
-<template #iconDescending>
+<template #icon.descending>
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="current-stroke stroke-2" viewBox="0 0 16 16">
     <path d="M3.5 13.5a.5.5 0 0 1-1 0V4.707L1.354 5.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 4.707V13.5zm4-9.5a.5.5 0 0 1 0-1h1a.5.5 0 0 1 0 1h-1zm0 3a.5.5 0 0 1 0-1h3a.5.5 0 0 1 0 1h-3zm0 3a.5.5 0 0 1 0-1h5a.5.5 0 0 1 0 1h-5zM7 12.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5z"/>
   </svg>
@@ -2199,7 +2249,7 @@ Used to customize icon for descending icon if you used sortable
 <table width="100%">
 <thead>
 <tr>
-<th>labelCheckboxGridHeader</th>
+<th>grid.content.header.checkbox</th>
 </tr>
 </thead>
 <tbody>
@@ -2214,7 +2264,7 @@ Used to customize checkbox label inside grid header
 <td>
 
 ```html
-<template #labelCheckboxGridHeader>
+<template #grid.content.header.checkbox>
   <span class="text-lg font-bold">
     Selected
   </span>

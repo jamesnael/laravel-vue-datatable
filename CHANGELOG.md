@@ -50,28 +50,28 @@
 
 | Before | After | Status |
 | --- | --- | --- |
-| dataUri | route | MODIFIED |
-| disableGotoFirstNav | disableFirstPageButton | MODIFIED |
-| disableGotoLastNav | disableLastPageButton | MODIFIED |
-| disableGotoNextNav | disableNextPageButton | MODIFIED |
-| disableGotoPrevNav | disablePreviousPageButton | MODIFIED |
-| disableRefreshBtn | disableReloadButton | MODIFIED |
-| gotoFirstNavClass | firstPageButtonClass | MODIFIED |
-| gotoFirstNavStyle | firstPageButtonStyle | MODIFIED |
-| gotoLastNavClass | lastPageButtonClass | MODIFIED |
-| gotoLastNavStyle | lastPageButtonStyle | MODIFIED |
-| gotoNextNavClass | nextPageButtonClass | MODIFIED |
-| gotoNextNavStyle | nextPageButtonStyle | MODIFIED |
-| gotoPrevNavClass | previousPageButtonClass | MODIFIED |
-| gotoPrevNavStyle | previousPageButtonStyle | MODIFIED |
-| headerClass | theadClass | MODIFIED |
-| headerStyle | theadStyle | MODIFIED |
-| loader | disableLoader | MODIFIED |
-| refreshBtnClass | reloadButtonClass | MODIFIED |
-| refreshBtnLabel | reloadButtonLabel | MODIFIED |
-| refreshBtnStyle | reloadButtonStyle | MODIFIED |
-| | disableRowsPerPage | NEW |
-| | disableSkeletonLoader | NEW |
-| | noResultLabel | NEW |
-| | reverseHead | NEW |
-| | reverseNavigation | NEW |
+| data-uri | route | MODIFIED |
+| disable-goto-first-nav | disable-first-page-button | MODIFIED |
+| disable-goto-last-nav | disable-last-page-button | MODIFIED |
+| disable-goto-next-nav | disable-next-page-button | MODIFIED |
+| disable-goto-prev-nav | disable-previous-page-button | MODIFIED |
+| disable-refresh-btn | disable-reload-button | MODIFIED |
+| goto-first-nav-class | first-page-button-class | MODIFIED |
+| goto-first-nav-style | first-page-button-style | MODIFIED |
+| goto-last-nav-class | last-page-button-class | MODIFIED |
+| goto-last-nav-style | last-page-button-style | MODIFIED |
+| goto-next-nav-class | next-page-button-class | MODIFIED |
+| goto-next-nav-style | next-page-button-style | MODIFIED |
+| goto-prev-nav-class | previous-page-button-class | MODIFIED |
+| goto-prev-nav-style | previous-page-button-style | MODIFIED |
+| header-class | thead-class | MODIFIED |
+| header-style | thead-style | MODIFIED |
+| loader | disable-loader | MODIFIED |
+| refresh-btn-class | reload-button-class | MODIFIED |
+| refresh-btn-label | reload-button-label | MODIFIED |
+| refresh-btn-style | reload-button-style | MODIFIED |
+| | disable-rows-per-page | NEW |
+| | disable-skeleton-loader | NEW |
+| | no-result-label | NEW |
+| | reverse-head | NEW |
+| | reverse-navigation | NEW |
