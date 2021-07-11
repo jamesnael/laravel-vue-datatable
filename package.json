@@ -1,22 +1,22 @@
 {
-  "name": "laravel-vue-datatable",
-  "version": "1.0.0",
+  "name": "laravel-vue-datatables",
+  "version": "1.0.1",
   "author": {
     "name": "Toni Oktoro",
     "email": "tonioktoro@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/razztyfication/laravel-vue-datatable.git"
+    "url": "https://github.com/razztyfication/laravel-vue-datatables.git"
   },
-  "homepage": "https://github.com/razztyfication/laravel-vue-datatable",
+  "homepage": "https://github.com/razztyfication/laravel-vue-datatables",
   "private": false,
   "description": "Laravel datatable wrapper with Vue JS and Tailwind CSS.",
-  "main": "dist/laravel-vue-datatable.common.js",
-  "unpkg": "dist/laravel-vue-datatable.umd.min.js",
+  "main": "dist/laravel-vue-datatables.common.js",
+  "unpkg": "dist/laravel-vue-datatables.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name laravel-vue-datatable ./src/components/LaravelTablewind.vue",
+    "build": "vue-cli-service build --target lib --name laravel-vue-datatables ./src/components/LaravelTablewind.vue",
     "lint": "vue-cli-service lint"
   },
   "files": [

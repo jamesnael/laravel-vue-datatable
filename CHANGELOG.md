@@ -1,4 +1,9 @@
-# [v1.0.0](https://github.com/razztyfication/laravue-datatable/tree/master)
+# [v1.0.1](https://github.com/razztyfication/laravue-datatable/tree/master)
+
+- Initial Release
+- Change name from `laravel-vue-datatable` to `laravel-vue-datatables`
+
+# [v1.0.0](https://github.com/razztyfication/laravel-vue-datatable/tree/v1.0.0)
 
 - First Release
 - Rename Slots Name and Add New Slots
