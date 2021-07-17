@@ -4,11 +4,12 @@ Laravel datatable wrapper with Vue JS and Tailwind CSS.
 
 <br><br>
 
-<h1>IMPORTANT !!!</h1>
-
 <h3>
 
-If you migrate from [vue-laravel-tablewind](https://github.com/razztyfication/vue-laravel-tablewind) please read the [changelog](https://github.com/razztyfication/laravel-vue-datatable/blob/master/CHANGELOG.md) first.
+[Example](https://laravel-vue-datatables.herokuapp.com/)
+
+
+[DEMO on codesandbox](https://codesandbox.io/s/n9qb8?file=/src/App.vue)
 </h3>
 
 <br><br>
