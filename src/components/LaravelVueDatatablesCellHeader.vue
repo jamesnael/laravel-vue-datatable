@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import { setupClass } from "@/utils/helper.js";
+import { setupClass } from "./../utils/helper.js";
 
 export default {
-  name: 'LaravelTablewindHeaderCell',
+  name: 'LaravelVueDatatablesCellHeader',
   props: {
     uniqid: { type: String, required: true },
     label: { type: String, required: true },

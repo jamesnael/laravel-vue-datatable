@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col space-y-4">
-    <div v-if="$slots.title || title || caption" class="flex-1 flex flex-col space-y-4">
-      <div v-if="$slots.title || title">
+    <div v-if="hasSlots('title') || title || caption" class="flex-1 flex flex-col space-y-4">
+      <div v-if="hasSlots('title') || title">
         <slot name="title">
           {{ title }}
         </slot>
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div v-if="$slots['before.data-table']" class="flex-1">
+    <div v-if="hasSlots('before.data-table')" class="flex-1">
       <slot name="before.data-table" />
     </div>
 
@@ -52,7 +52,7 @@
                 <span />
               </label>
             </th>
-            <laravel-tablewind-header-cell
+            <laravel-vue-datatables-cell-header
               v-for="cell in columns"
               :key="'th-cell-' + cell.uniqid"
               v-bind="cell"
@@ -61,13 +61,13 @@
               <template v-slot:[scopedHeaderSlotName(cell.uniqid)]="slotData">
                 <slot :name="'table.cell.header.' + cell.uniqid" v-bind="slotData" />
               </template>
-              <template #icon.ascending>
+              <template v-slot:[`icon.ascending`]>
                 <slot name="icon.ascending" />
               </template>
-              <template #icon.descending>
+              <template v-slot:[`icon.descending`]>
                 <slot name="icon.descending" />
               </template>
-            </laravel-tablewind-header-cell>
+            </laravel-vue-datatables-cell-header>
           </tr>
         </thead>
         <tbody v-if="isLoading && !disableSkeletonLoader">
@@ -110,7 +110,7 @@
               </label>
             </td>
 
-            <laravel-tablewind-body-cell
+            <laravel-vue-datatables-cell-body
               v-for="cell in columns"
               :key="'td-cell-' + cell.uniqid"
               v-bind="cell"
@@ -121,17 +121,17 @@
               <template v-slot:[scopedBodySlotName(cell.uniqid)]="slotData">
                 <slot :name="'table.cell.content.' + cell.uniqid" v-bind="slotData" />
               </template>
-            </laravel-tablewind-body-cell>
+            </laravel-vue-datatables-cell-body>
           </tr>
           <slot name="table.row.append" :items="items" />
         </tbody>
       </table>
       <div v-if="isLoading && !disableLoader" class="absolute inset-0 bg-gray-300 bg-opacity-30 h-full flex flex-col justify-center">
-        <laravel-tablewind-loader>
-          <template #loader>
+        <laravel-vue-datatables-loader>
+          <template v-slot:[`loader`]>
             <slot name="loader" />
           </template>
-        </laravel-tablewind-loader>
+        </laravel-vue-datatables-loader>
       </div>
     </div>
 
@@ -151,19 +151,19 @@
             </label>
           </div>
 
-          <laravel-tablewind-grid-content
+          <laravel-vue-datatables-grid-content
             v-for="cell in columns"
             :key="'grid-content-' + cell.uniqid"
             v-bind="cell"
             :row="item"
           >
             <template v-slot:[scopedGridHeaderName(cell.uniqid)]="slotData">
-              <slot :name="'grid-header-' + cell.uniqid" v-bind="slotData" />
+              <slot :name="'grid.content.header.' + cell.uniqid" v-bind="slotData" />
             </template>
             <template v-slot:[scopedGridBodyName(cell.uniqid)]="slotData">
-              <slot :name="'grid-body-' + cell.uniqid" v-bind="slotData" />
+              <slot :name="'grid.content.body.' + cell.uniqid" v-bind="slotData" />
             </template>
-          </laravel-tablewind-grid-content>
+          </laravel-vue-datatables-grid-content>
           <slot name="grid.append" :item="item" />
         </div>
       </div>
@@ -200,15 +200,15 @@
         </div>
       </div>
       <div v-if="isLoading && !disableLoader" class="absolute inset-0 bg-gray-300 bg-opacity-30 h-full flex flex-col justify-center">
-        <laravel-tablewind-loader>
-          <template #loader>
+        <laravel-vue-datatables-loader>
+          <template v-slot:[`loader`]>
             <slot name="loader" />
           </template>
-        </laravel-tablewind-loader>
+        </laravel-vue-datatables-loader>
       </div>
     </div>
 
-    <div v-if="$slots['after.data-table']" class="flex-1">
+    <div v-if="hasSlots('after.data-table')" class="flex-1">
       <slot name="after.data-table" />
     </div>
 
@@ -230,7 +230,7 @@
               <slot name="label.rows-per-page">
                 <span class="whitespace-nowrap font-medium">{{ rowsPerPageLabel }}</span>
               </slot>
-              <select :class="initClass(rowsPerPageClass)" :style="rowsPerPageStyle" v-model="per_page" @change="getData()" :disabled="isLoading">
+              <select :class="initClass(rowsPerPageClass)" :style="rowsPerPageStyle" v-model="per_page" @change="updatePerPage()" :disabled="isLoading">
                 <option v-for="(option, idx) in rowsPerPageOptions" :key="'goto-option-' + idx" :value="option">{{ option }}</option>
               </select>
             </div>
@@ -283,11 +283,17 @@
       </div>
     </div>
 
-    <div v-if="$slots.footer" class="flex-1">
+    <div v-if="hasSlots('footer')" class="flex-1">
       <slot name="footer" />
     </div>
   </div>
 </template>
+
+<style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</style>
 
 <script>
 var filter = require('lodash/filter');
@@ -304,21 +310,19 @@ var isString = require('lodash/isString');
 var isArray = require('lodash/isArray');
 var split = require('lodash/split');
 
-import LaravelTablewindHeaderCell from './LaravelTablewindHeaderCell.vue';
-import LaravelTablewindBodyCell from './LaravelTablewindBodyCell.vue';
-import LaravelTablewindLoader from './LaravelTablewindLoader.vue';
-import LaravelTablewindGridContent from './LaravelTablewindGridContent.vue';
-import { setupClass } from "@/utils/helper.js";
-
-require('./../assets/index.css');
+import LaravelVueDatatablesCellHeader from './LaravelVueDatatablesCellHeader.vue';
+import LaravelVueDatatablesCellBody from './LaravelVueDatatablesCellBody.vue';
+import LaravelVueDatatablesLoader from './LaravelVueDatatablesLoader.vue';
+import LaravelVueDatatablesGridContent from './LaravelVueDatatablesGridContent.vue';
+import { setupClass } from "./../utils/helper.js";
 
 export default {
-  name: 'LaravelTablewind',
+  name: 'LaravelVueDatatables',
   components: {
-    LaravelTablewindHeaderCell,
-    LaravelTablewindBodyCell,
-    LaravelTablewindLoader,
-    LaravelTablewindGridContent,
+    LaravelVueDatatablesCellHeader,
+    LaravelVueDatatablesCellBody,
+    LaravelVueDatatablesLoader,
+    LaravelVueDatatablesGridContent,
   },
   props: {
     route: { type: String, required: true },
@@ -700,7 +704,7 @@ export default {
             this.isLoading = false;
           } else {
             // Oh no! There has been an error with the request!
-            console.log('Oh no! There has been an error with the request!');
+            // console.log('Oh no! There has been an error with the request!');
             this.isLoading = false;
           }
         }
@@ -713,6 +717,10 @@ export default {
       this.page = paramsObject.page;
 
       this.uri = this.getCompleteUri(navigationUri);
+      this.getData();
+    },
+    updatePerPage() {
+      this.uri = this.getCompleteUri(this.route);
       this.getData();
     },
     gotoPage() {
@@ -740,6 +748,9 @@ export default {
     initClass(classObject) {
       return setupClass(classObject);
     },
+    hasSlots(slotName) {
+      return this.$slots ? !!this.$slots[ slotName ] : false ;
+    }
   }
 }
 </script>

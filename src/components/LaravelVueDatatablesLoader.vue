@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  name: 'LaravelTablewindLoader',
+  name: 'LaravelVueDatatablesLoader',
 }
 </script>

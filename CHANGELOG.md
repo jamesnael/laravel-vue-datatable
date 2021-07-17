@@ -1,9 +1,14 @@
-# [v1.0.1](https://github.com/razztyfication/laravue-datatable/tree/master)
+# [v1.0.2 Add Support for Vue 3](https://github.com/razztyfication/laravue-datatable/tree/master)
+
+- Now support Vue 2 and Vue 3
+- Bug Fix update Rows Per Page and Invalid Slot Name for Grid
+ 
+# [v1.0.1 Initial Release](https://github.com/razztyfication/laravue-datatable/tree/v1.0.1)
 
 - Initial Release
-- Change name from `laravel-vue-datatable` to `laravel-vue-datatables`
+- Change name from `laravel-vue-datatable` to `laravel-vue-datatables` due to conflict in npm
 
-# [v1.0.0](https://github.com/razztyfication/laravel-vue-datatable/tree/v1.0.0)
+# [v1.0.0 First Release](https://github.com/razztyfication/laravel-vue-datatable/tree/v1.0.0)
 
 - First Release
 - Rename Slots Name and Add New Slots

@@ -12,10 +12,10 @@ var merge = require('lodash/merge');
 var isString = require('lodash/isString');
 var isArray = require('lodash/isArray');
 var split = require('lodash/split');
-import { setupClass } from "@/utils/helper.js";
+import { setupClass } from "./../utils/helper.js";
 
 export default {
-  name: 'LaravelTablewindBodyCell',
+  name: 'LaravelVueDatatablesCellBody',
   props: {
     uniqid: { type: String, required: true },
     field: {

@@ -15,10 +15,10 @@
 
 <script>
 var isFunction = require('lodash/isFunction');
-import { setupClass } from "@/utils/helper.js";
+import { setupClass } from "./../utils/helper.js";
 
 export default {
-  name: 'LaravelTablewindBodyCell',
+  name: 'LaravelVueDatatablesGridContent',
   props: {
     uniqid: { type: String, required: true },
     label: { type: String, required: true },

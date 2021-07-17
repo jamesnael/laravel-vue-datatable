@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
-/dist/*.html
-package-lock.json
+/dist
 TODO.md
 
 # local env files

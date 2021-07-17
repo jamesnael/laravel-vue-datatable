@@ -23,7 +23,8 @@ If you migrate from [vue-laravel-tablewind](https://github.com/razztyfication/vu
     - [Checkbox Props](#checkbox-props)
     - [Grid Props](#grid-props)
     - [Search Field Props](#search-field-props)
-    - [Refresh Button Props](#refresh-button-props)
+    - [Reload Button Props](#reload-button-props)
+    - [Reverse Props](#reverse-props)
     - [Pagination Props](#pagination-props)
     - [Columns Props](#columns-props)
   - [Slots](#slots)
@@ -45,20 +46,29 @@ Then add it to your component files
 <!-- MyComponent.vue -->
 
 <template>
-  <LaravelTablewind
+  <laravel-vue-datatables
+    route="https:://mydomain.com/table"
+    v-model:columns="columns"
+  />
+  
+  <!-- for Vue 2 component
+
+  <laravel-vue-datatables
     route="https:://mydomain.com/table"
     :columns.sync="columns"
   />
+
+  -->
 </template>
 
 <script>
-import LaravelTablewind from 'laravel-vue-datatables';
-require('laravel-vue-datatable/dist/laravel-vue-datatables.css');
+import LaravelVueDatatables from 'laravel-vue-datatables';
+require('laravel-vue-datatables/dist/laravel-vue-datatables.css');
 
 export default {
   name: 'MyComponent',
   components: {
-    LaravelTablewind,
+    LaravelVueDatatables,
   },
   data() {
     return {
@@ -107,10 +117,19 @@ export default {
 
 ```html
 <template>
-  <LaravelTablewind
+  <laravel-vue-datatables
+    route="https:://mydomain.com/table"
+    v-model:columns="columns"
+  />
+
+  <!-- for Vue 2 component
+
+  <laravel-vue-datatables
     route="https:://mydomain.com/table"
     :columns.sync="columns"
   />
+  
+  -->
 </template>
 ```
 Please refer to [`columns`](#columns-props) props for detailed usage and explanation.
@@ -124,16 +143,28 @@ Please refer to [`columns`](#columns-props) props for detailed usage and explana
 
 ```html
 <template>
-  <LaravelTablewind
+  <laravel-vue-datatables
     route="https:://mydomain.com/table"
     v-model:columns="columns"
+    with-select
+    v-model:checked="yourCheckedModel"
+    selected-key="isSelected"
+  />
+
+  <!-- for Vue 2 component
+
+  <laravel-vue-datatables
+    route="https:://mydomain.com/table"
+    :columns.sync="columns"
     with-select
     :checked.sync="yourCheckedModel"
     selected-key="isSelected"
   />
+  
+  -->
 </template>
 ```
-Used for get selected row if you use `with-select` props.
+Your v-model to get selected row if you use `with-select` props.
 </td>
 </tr>
 </tbody>
@@ -163,7 +194,7 @@ Used for get selected row if you use `with-select` props.
 <td align="center"><em>String</em></td>
 <td align="center"><strong>Yes</strong></td>
 <td align="center"></td>
-<td>Enter your uri for laravel-vue-datatables get data from.</td>
+<td>Enter your laravel uri for laravel-vue-datatables to get data from.</td>
 </tr>
 <tr>
 <td><strong>query</strong></td>
@@ -174,16 +205,21 @@ Used for get selected row if you use `with-select` props.
 `[]`
 </td>
 <td>
-Add your custom query parameters to add it to <strong>route</strong> before get data from your server.
+Add your custom query parameters before get data from your laravel server.
 
+<br><br>
+
+Example as string:
 ```json
 query="foo=bar&hello=world"
 ```
 
+Example as array:
 ```json
 :query='[ "foo=bar", "hello=world" ]'
 ```
 
+Example as object:
 ```json
 :query='{ "foo": "bar", "hello": "world" }'
 ```
@@ -194,7 +230,12 @@ query="foo=bar&hello=world"
 <td align="center"><em>String</em></td>
 <td align="center">Optional</td>
 <td align="center"></td>
-<td></td>
+<td>
+
+Generate table title.
+
+**Note**: *This props will be rendered above search field, if you want to add above the table use `after.data-table` slot.*
+</td>
 </tr>
 <tr>
 <td><strong>caption</strong></td>
@@ -222,10 +263,12 @@ Generate table caption with `<caption>` tag
 </td>
 <td>
 
+Example as string:
 ```json
 "font-bold text-blue-400"
 ```
 
+Example as array:
 ```json
 [
   "font-bold",
@@ -233,6 +276,7 @@ Generate table caption with `<caption>` tag
 ]
 ```
 
+Example as object:
 ```json
 {
   "font-bold": true,
@@ -248,17 +292,20 @@ Generate table caption with `<caption>` tag
 <td align="center"></td>
 <td>
 
+Example as string:
+
 ```json
 "background-color: red"
 ```
 
+Example as array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as object:
 ```json
 {
   "backgroundColor": "red",
@@ -281,17 +328,18 @@ Generate table caption with `<caption>` tag
 </td>
 <td>
 
+Example as string:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as object:
 ```json
 {
   "font-bold": true,
@@ -307,10 +355,12 @@ Generate table caption with `<caption>` tag
 <td align="center"></td>
 <td>
 
+Example as string:
 ```json
 "background-color: red"
 ```
 
+Example as array:
 ```json
 [
   "background-color: red",
@@ -318,6 +368,7 @@ Generate table caption with `<caption>` tag
 ]
 ```
 
+Example as object:
 ```json
 {
   "backgroundColor": "red",
@@ -333,7 +384,7 @@ Generate table caption with `<caption>` tag
 <td align="center">
 
 `true`</td>
-<td></td>
+<td>Table row hover</td>
 </tr>
 <tr>
 <td><strong>hover-class</strong></td>
@@ -349,10 +400,14 @@ Generate table caption with `<caption>` tag
 </td>
 <td>
 
+Example as String
+
 ```json
 "group-hover:font-bold group-hover:text-blue-400"
 ```
 
+
+Example as Array
 ```json
 [
   "group-hover:font-bold",
@@ -360,12 +415,15 @@ Generate table caption with `<caption>` tag
 ]
 ```
 
+Example as Object
 ```json
 {
   "group-hover:font-bold": true,
   "group-hover:text-blue-400": true
 }
 ```
+
+**Note**: *If you use tailwind css please use `group-hover` state*
 </td>
 </tr>
 <tr>
@@ -375,7 +433,16 @@ Generate table caption with `<caption>` tag
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable table loading message</td>
+</tr>
+<tr>
+<td><strong>disable-skeleton-loader</strong></td>
+<td align="center"><em>Boolean</em></td>
+<td align="center">Optional</td>
+<td align="center">
+
+`false`</td>
+<td>Disable skeleton loader on loading state</td>
 </tr>
 <tr>
 <td><strong>no-data-label</strong></td>
@@ -384,7 +451,15 @@ Generate table caption with `<caption>` tag
 <td align="center">
 
 `'No records found.'`</td>
-<td></td>
+<td> No data label text </td>
+</tr>
+<td><strong>no-result-label</strong></td>
+<td align="center"><em>String</em></td>
+<td align="center">Optional</td>
+<td align="center">
+
+`'No records matching your criteria'`</td>
+<td> No result text </td>
 </tr>
 </tbody>
 </table>
@@ -410,7 +485,7 @@ Generate table caption with `<caption>` tag
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Show checkbox on first column of your datatable</td>
 </tr>
 <tr>
 <td><strong>selected-key</strong></td>
@@ -419,7 +494,11 @@ Generate table caption with `<caption>` tag
 <td align="center">
 
 `'isSelected'`</td>
-<td>Make sure this field is inside first level of your object otherwise it will return false</td>
+<td>
+Datatable selected field.
+<br><br>
+
+**Note:** *Make sure this field is inside first level of your object otherwise it will return false.*</td>
 </tr>
 <tr>
 <td><strong>checkbox-class</strong></td>
@@ -437,17 +516,19 @@ Generate table caption with `<caption>` tag
 </td>
 <td>
 
+Example as String:
+
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -463,17 +544,19 @@ Generate table caption with `<caption>` tag
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
 
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -508,7 +591,14 @@ Generate table caption with `<caption>` tag
 `'responsive'`</td>
 <td>
 
-Accept: `'responsive'`, `'always'` or `'never'`</td>
+Accepted value: `'responsive'`, `'always'` or `'never'`
+
+`responsive`: Only show grid on tablet or lower
+
+`always`: Always show grid instead of table
+
+`never`: Always show table on all device
+</td>
 </tr>
 <tr>
 <td><strong>grid-container-class</strong></td>
@@ -527,17 +617,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -553,17 +644,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -579,7 +671,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `6`</td>
-<td></td>
+<td>Numbers of grid column in grid view</td>
 </tr>
 </tbody>
 </table>
@@ -605,7 +697,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable search input field</td>
 </tr>
 <tr>
 <td><strong>search-label</strong></td>
@@ -614,7 +706,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `'Search...'`</td>
-<td></td>
+<td>search input field placeholder</td>
 </tr>
 <tr>
 <td><strong>search-class</strong></td>
@@ -642,17 +734,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -668,17 +761,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -692,7 +786,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 
 <br><br>
 
-### Refresh Button Props
+### Reload Button Props
 
 <table width="100%">
 <thead>
@@ -711,7 +805,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable reload button</td>
 </tr>
 <tr>
 <td><strong>reload-button-label</strong></td>
@@ -720,7 +814,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `'Reload'`</td>
-<td></td>
+<td>Reload button text</td>
 </tr>
 <tr>
 <td><strong>reload-button-class</strong></td>
@@ -744,17 +838,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -770,17 +865,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -794,6 +890,40 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 
 <br><br>
 
+### Reverse Props
+<table width="100%">
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">Type</th>
+<th align="center">Mandatory</th>
+<th align="center">Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>reverse-head</strong></td>
+<td align="center"><em>Boolean</em></td>
+<td align="center">Optional</td>
+<td align="center">
+
+`true`</td>
+<td>Switch position on search field and reload button container.</td>
+</tr>
+<tr>
+<td><strong>reverse-navigation</strong></td>
+<td align="center"><em>Boolean</em></td>
+<td align="center">Optional</td>
+<td align="center">
+
+`true`</td>
+<td>Switch position on pagination label and navigation buttons container.</td>
+</tr>
+</tbody>
+</table>
+
+<br><br>
 ### Pagination Props
 
 <table width="100%">
@@ -813,7 +943,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable pagination label, rows per page and navigation buttons</td>
 </tr>
 <tr>
 <td><strong>disable-pagination-label</strong></td>
@@ -822,7 +952,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable pagination label</td>
 </tr>
 <tr>
 <td><strong>disable-navigation</strong></td>
@@ -831,7 +961,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable navigation buttons</td>
 </tr>
 <tr>
 <td><strong>disable-goto-page</strong></td>
@@ -840,7 +970,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable go to page in navigation buttons</td>
 </tr>
 <tr>
 <td><strong>goto-page-class</strong></td>
@@ -870,17 +1000,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -896,17 +1027,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -922,7 +1054,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `'Rows per page:'`</td>
-<td></td>
+<td>Rows per page label</td>
 </tr>
 <tr>
 <td><strong>rows-per-page</strong></td>
@@ -931,7 +1063,17 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `10`</td>
-<td></td>
+<td>Numbers of rows for each page</td>
+</tr>
+<tr>
+<tr>
+<td><strong>disable-rows-per-page</strong></td>
+<td align="center">[ <em>Boolean</em> ]</td>
+<td align="center">Optional</td>
+<td align="center">
+
+`false`</td>
+<td>Disable row per page options</td>
 </tr>
 <tr>
 <td><strong>rows-per-page-class</strong></td>
@@ -961,17 +1103,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -987,17 +1130,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1013,7 +1157,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `[ 10, 20, 50 ]`</td>
-<td></td>
+<td>Rows per page options</td>
 </tr>
 <tr>
 <td><strong>disable-first-page-button</strong></td>
@@ -1022,7 +1166,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable first page button in navigation buttons</td>
 </tr>
 <tr>
 <td><strong>first-page-button-class</strong></td>
@@ -1046,17 +1190,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -1072,17 +1217,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1098,7 +1244,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable last page button in navigation buttons</td>
 </tr>
 <tr>
 <td><strong>last-page-button-class</strong></td>
@@ -1122,17 +1268,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -1148,17 +1295,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1174,7 +1322,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable previous page button in navigation buttons</td>
 </tr>
 <tr>
 <td><strong>previous-page-button-class</strong></td>
@@ -1198,17 +1346,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -1224,17 +1373,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1250,7 +1400,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center">
 
 `false`</td>
-<td></td>
+<td>Disable next page button in navigation buttons</td>
 </tr>
 <tr>
 <td><strong>next-page-button-class</strong></td>
@@ -1274,17 +1424,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 </td>
 <td>
 
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -1300,17 +1451,18 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <td align="center"></td>
 <td>
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1325,7 +1477,7 @@ Accept: `'responsive'`, `'always'` or `'never'`</td>
 <br><br>
 
 ### Columns Props
-> This props used to render columns and basic formating value, you can modified inside <strong>columns</strong> 
+> This props used to render columns and basic formating value, you can modified inside <strong>columns</strong>
 
 ```js
 export default {
@@ -1473,18 +1625,18 @@ Horizontal alignment of cells in this column.<br>Accept: `'left'`, `'center'` or
 
 Class for `<th>` tag
 
-
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -1502,17 +1654,18 @@ Class for `<th>` tag
 
 Style for `<th>` tag
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1530,18 +1683,18 @@ Style for `<th>` tag
 
 Class for `<td>` tag
 
-
+Example as String:
 ```json
 "font-bold text-blue-400"
 ```
-
+Example as Array:
 ```json
 [
   "font-bold",
   "text-blue-400"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "font-bold": true,
@@ -1559,17 +1712,18 @@ Class for `<td>` tag
 
 Style for `<td>` tag
 
+Example as String:
 ```json
 "background-color: red"
 ```
-
+Example as Array:
 ```json
 [
   "background-color: red",
   "color: blue"
 ]
 ```
-
+Example as Object:
 ```json
 {
   "backgroundColor": "red",
@@ -1605,6 +1759,62 @@ Title of your table
 ```html
 <template #title>
   Insert your title here!
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>before.data-table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to add content before the table
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #before.data-table>
+  <span>Text Before Table</span>
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>after.data-table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to add content after the table
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #after.data-table>
+  <span>Text After Table</span>
 </template>
 ```
 
@@ -1817,6 +2027,33 @@ Used to customize text when no data found in table
 <table width="100%">
 <thead>
 <tr>
+<th>label.no-result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render no result label
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #label.no-result>
+  <span>labelNoResult</span>
+</template>
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
 <th>loader</th>
 </tr>
 </thead>
@@ -1885,11 +2122,11 @@ Used if you want to add content left of pagination label on tablet and desktop a
 <tr>
 <td>
 
-Used to show count of data in table. 
+Used to show count of data in table.
 
-`from` used to show first data, 
+`from` used to show first data,
 
-`to` used to show last data, and 
+`to` used to show last data, and
 
 `total` used to show total data
 </td>
@@ -2228,6 +2465,124 @@ Used to customize icon for descending icon if you used sortable
 <table width="100%">
 <thead>
 <tr>
+<th>table.row.prepend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to prepend data in each rows of table
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #table.row.prepend>
+  <tr>
+    <td>No</td>
+    <td>Name</td>
+    <td>Phone Number</td>
+    <td>Address</td>
+  </tr>
+</template>
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>table.row.append</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to append data in each rows of table
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #table.row.append>
+  <tr>
+    <td>No</td>
+    <td>Name</td>
+    <td>Phone Number</td>
+    <td>Address</td>
+  </tr>
+</template>
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>table.row.skeleton</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render skeleton loader per rows of table
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #table.row.skeleton>
+  <div class="mx-auto animate-pulse h-6 w-6 bg-blue-400 rounded" />
+</template>
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>table.cell.skeleton.checkbox</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render skeleton loader checkbox in cell of table
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #table.cell.skeleton.checkbox>
+  <div class="mx-auto animate-pulse h-6 w-6 bg-blue-400 rounded" />
+</template>
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
 <th>grid.content.header.checkbox</th>
 </tr>
 </thead>
@@ -2250,6 +2605,146 @@ Used to customize checkbox label inside grid header
 </template>
 ```
 
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>grid.prepend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to prepend content in grid view
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #grid.prepend">
+  <div class="flex flex-col space-y-2">
+      Prepend Text
+  </div>
+</template>
+```
+
+```html
+<template #grid.prepend="{ item }">
+  <div class="flex flex-col space-y-2">
+    <span class="text-lg font-bold">
+      Prepend List
+    </span>
+    <span class="text-lg font-bold">
+    {{ item.carlicense }}
+    </span>
+  </div>
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>grid.append</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to append content in grid view
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #grid.append">
+  <div class="flex flex-col space-y-2">
+      Append Data
+  </div>
+</template>
+```
+
+```html
+<template #grid.append="{ item }">
+  <div class="flex flex-col space-y-2">
+    <span class="text-lg font-bold">
+      Append List
+    </span>
+    <span class="text-lg font-bold">
+    {{ item.carlicense }}
+    </span>
+  </div>
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>grid.skeleton.container</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render skeleton loader at container grid view
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #grid.skeleton.container>
+  <div class="mx-auto animate-pulse h-6 w-6 bg-blue-400 rounded" />
+</template>
+```
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>grid.skeleton.body.checkbox</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render skeleton loader at checkbox grid view
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #grid.skeleton.body.checkbox>
+  <div class="mx-auto animate-pulse h-6 w-6 bg-blue-400 rounded" />
+</template>
+```
 </td>
 </tr>
 </tbody>
@@ -2383,6 +2878,66 @@ This slot has 2 arguments:
 <template #grid.content.body.fullName="{ value, row }">
   <p class="text-blue-600 leading-5">Formatted Value: {{ value }}</p>
   <p class="text-blue-600 leading-5">Unformatted Value: {{ row.first_name }} {{ row.last_name }}</p>
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>table.cell.skeleton.[col.uniqid]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render skeleton loader for spesific column identified by `col.uniqid`
+
+`col.uniqid` is required as identity of column inside table it must be unique, type of `uniqid` is string, `uniqid` based on passed data from controller
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #table.cell.skeleton.carlicense="{ column }">
+  <span>{{ column.label }}</span>
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<th>grid.skeleton.body.[col.uniqid]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to render skeleton loader for spesific grid column identified by `col.uniqid`
+
+`col.uniqid` is required as identity of column inside table it must be unique, type of `uniqid` is string, `uniqid` based on passed data from controller
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #grid.skeleton.body.carlicense="{ column }">
+  <span>{{ column.label }}</span>
 </template>
 ```
 
