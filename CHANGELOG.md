@@ -1,4 +1,8 @@
-# [v1.0.2 Add Support for Vue 3](https://github.com/razztyfication/laravue-datatable/tree/master)
+# [v1.0.3](https://github.com/razztyfication/laravue-datatable/tree/master)
+
+- Bug Fix Skeleton loader not loop by rows per page
+
+# [v1.0.2 Add Support for Vue 3](https://github.com/razztyfication/laravue-datatable/tree/v1.0.2)
 
 - Now support Vue 2 and Vue 3
 - Bug Fix update Rows Per Page and Invalid Slot Name for Grid

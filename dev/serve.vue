@@ -119,7 +119,7 @@ export default defineComponent({
 <template>
   <div id="app">
     <laravel-vue-datatables
-      route="http://laravel-demo.local"
+      route="https://laravel-vue-datatables.herokuapp.com/api/table"
       v-model:columns="columns"
       with-select
       v-model:checked="selected"

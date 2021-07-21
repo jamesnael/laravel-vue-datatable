@@ -1743,7 +1743,9 @@ Example as Object:
 <table width="100%">
 <thead>
 <tr>
-<th>title</th>
+<td>
+
+**#title**</td>
 </tr>
 </thead>
 <tbody>
@@ -1771,7 +1773,9 @@ Title of your table
 <table width="100%">
 <thead>
 <tr>
-<th>before.data-table</th>
+<td>
+
+**#before.data-table**</td>
 </tr>
 </thead>
 <tbody>
@@ -1799,7 +1803,9 @@ Used to add content before the table
 <table width="100%">
 <thead>
 <tr>
-<th>after.data-table</th>
+<td>
+
+**#after.data-table**</td>
 </tr>
 </thead>
 <tbody>
@@ -1827,7 +1833,9 @@ Used to add content after the table
 <table width="100%">
 <thead>
 <tr>
-<th>before.search</th>
+<td>
+
+**#before.search**</td>
 </tr>
 </thead>
 <tbody>
@@ -1855,7 +1863,9 @@ Used if you want to add content left of search field on tablet and desktop and t
 <table width="100%">
 <thead>
 <tr>
-<th>icon.search</th>
+<td>
+
+**#icon.search**</td>
 </tr>
 </thead>
 <tbody>
@@ -1884,7 +1894,9 @@ Slot for search field icon
 <table width="100%">
 <thead>
 <tr>
-<th>after.search</th>
+<td>
+
+**#after.search**</td>
 </tr>
 </thead>
 <tbody>
@@ -1912,7 +1924,9 @@ Used if you want to add content right of search field on tablet and desktop and 
 <table width="100%">
 <thead>
 <tr>
-<th>before.reload-button</th>
+<td>
+
+**#before.reload-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -1939,7 +1953,9 @@ Used if you want to add content left of reload button on tablet and desktop and 
 <table width="100%">
 <thead>
 <tr>
-<th>label.reload-button</th>
+<td>
+
+**#label.reload-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -1973,7 +1989,9 @@ Slot to customize label reload button
 <table width="100%">
 <thead>
 <tr>
-<th>after.reload-button</th>
+<td>
+
+**#after.reload-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -2000,7 +2018,9 @@ Used if you want to add content right of reload button on tablet and desktop and
 <table width="100%">
 <thead>
 <tr>
-<th>label.no-record</th>
+<td>
+
+**#label.no-record**</td>
 </tr>
 </thead>
 <tbody>
@@ -2028,7 +2048,9 @@ Used to customize text when no data found in table
 <table width="100%">
 <thead>
 <tr>
-<th>label.no-result</th>
+<td>
+
+**#label.no-result**</td>
 </tr>
 </thead>
 <tbody>
@@ -2055,7 +2077,9 @@ Used to render no result label
 <table width="100%">
 <thead>
 <tr>
-<th>loader</th>
+<td>
+
+**#loader**</td>
 </tr>
 </thead>
 <tbody>
@@ -2088,7 +2112,9 @@ Used to customize loader inside table
 <table width="100%">
 <thead>
 <tr>
-<th>before.pagination-label</th>
+<td>
+
+**#before.pagination-label**</td>
 </tr>
 </thead>
 <tbody>
@@ -2116,7 +2142,9 @@ Used if you want to add content left of pagination label on tablet and desktop a
 <table width="100%">
 <thead>
 <tr>
-<th>label.pagination</th>
+<td>
+
+**#label.pagination**</td>
 </tr>
 </thead>
 <tbody>
@@ -2148,7 +2176,9 @@ Used to show count of data in table.
 <table width="100%">
 <thead>
 <tr>
-<th>after.pagination-label</th>
+<td>
+
+**#after.pagination-label**</td>
 </tr>
 </thead>
 <tbody>
@@ -2177,7 +2207,9 @@ Used if you want to add content right of pagination label on tablet and desktop 
 <table width="100%">
 <thead>
 <tr>
-<th>before.navigation</th>
+<td>
+
+**#before.navigation**</td>
 </tr>
 </thead>
 <tbody>
@@ -2204,7 +2236,9 @@ Used if you want to add content left of navigation button on tablet and desktop 
 <table width="100%">
 <thead>
 <tr>
-<th>	after.navigation</th>
+<td>
+
+**#after.navigation**</td>
 </tr>
 </thead>
 <tbody>
@@ -2232,7 +2266,9 @@ Used if you want to add content right of navigation button on tablet and desktop
 <table width="100%">
 <thead>
 <tr>
-<th>label.rows-per-page</th>
+<td>
+
+**#label.rows-per-page**</td>
 </tr>
 </thead>
 <tbody>
@@ -2259,7 +2295,9 @@ Used to customize text data per page.
 <table width="100%">
 <thead>
 <tr>
-<th>icon.navigation.first-page-button</th>
+<td>
+
+**#icon.navigation.first-page-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -2289,7 +2327,9 @@ Used to customize icon inside first page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>icon.navigation.previous-page-button</th>
+<td>
+
+**#icon.navigation.previous-page-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -2318,7 +2358,9 @@ Used to customize icon inside previous page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>icon.navigation.next-page-button</th>
+<td>
+
+**#icon.navigation.next-page-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -2348,7 +2390,9 @@ Used to customize icon inside next page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>icon.navigation.last-page-button</th>
+<td>
+
+**#icon.navigation.last-page-button**</td>
 </tr>
 </thead>
 <tbody>
@@ -2378,7 +2422,9 @@ Used to customize icon inside last page navigation button
 <table width="100%">
 <thead>
 <tr>
-<th>footer</th>
+<td>
+
+**#footer**</td>
 </tr>
 </thead>
 <tbody>
@@ -2406,7 +2452,9 @@ Footer content of your table
 <table width="100%">
 <thead>
 <tr>
-<th>icon.ascending</th>
+<td>
+
+**#icon.ascending**</td>
 </tr>
 </thead>
 <tbody>
@@ -2436,7 +2484,9 @@ Used to customize icon for ascending icon if you used sortable
 <table width="100%">
 <thead>
 <tr>
-<th>icon.descending</th>
+<td>
+
+**#icon.descending**</td>
 </tr>
 </thead>
 <tbody>
@@ -2466,7 +2516,9 @@ Used to customize icon for descending icon if you used sortable
 <table width="100%">
 <thead>
 <tr>
-<th>table.row.prepend</th>
+<td>
+
+**#table.row.prepend**</td>
 </tr>
 </thead>
 <tbody>
@@ -2498,7 +2550,9 @@ Used to prepend data in each rows of table
 <table width="100%">
 <thead>
 <tr>
-<th>table.row.append</th>
+<td>
+
+**#table.row.append**</td>
 </tr>
 </thead>
 <tbody>
@@ -2530,7 +2584,9 @@ Used to append data in each rows of table
 <table width="100%">
 <thead>
 <tr>
-<th>table.row.skeleton</th>
+<td>
+
+**#table.row.skeleton**</td>
 </tr>
 </thead>
 <tbody>
@@ -2557,7 +2613,9 @@ Used to render skeleton loader per rows of table
 <table width="100%">
 <thead>
 <tr>
-<th>table.cell.skeleton.checkbox</th>
+<td>
+
+**#table.cell.skeleton.checkbox**</td>
 </tr>
 </thead>
 <tbody>
@@ -2584,7 +2642,9 @@ Used to render skeleton loader checkbox in cell of table
 <table width="100%">
 <thead>
 <tr>
-<th>grid.content.header.checkbox</th>
+<td>
+
+**#grid.content.header.checkbox**</td>
 </tr>
 </thead>
 <tbody>
@@ -2614,7 +2674,9 @@ Used to customize checkbox label inside grid header
 <table width="100%">
 <thead>
 <tr>
-<th>grid.prepend</th>
+<td>
+
+**#grid.prepend**</td>
 </tr>
 </thead>
 <tbody>
@@ -2657,7 +2719,9 @@ Used to prepend content in grid view
 <table width="100%">
 <thead>
 <tr>
-<th>grid.append</th>
+<td>
+
+**#grid.append**</td>
 </tr>
 </thead>
 <tbody>
@@ -2700,7 +2764,9 @@ Used to append content in grid view
 <table width="100%">
 <thead>
 <tr>
-<th>grid.skeleton.container</th>
+<td>
+
+**#grid.skeleton.container**</td>
 </tr>
 </thead>
 <tbody>
@@ -2727,7 +2793,9 @@ Used to render skeleton loader at container grid view
 <table width="100%">
 <thead>
 <tr>
-<th>grid.skeleton.body.checkbox</th>
+<td>
+
+**#grid.skeleton.body.checkbox**</td>
 </tr>
 </thead>
 <tbody>
@@ -2756,7 +2824,9 @@ Used to render skeleton loader at checkbox grid view
 <table width="100%">
 <thead>
 <tr>
-<th>table.cell.header.[uniqid]</th>
+<td>
+
+**#table.cell.header.[uniqid]**</td>
 </tr>
 </thead>
 <tbody>
@@ -2786,7 +2856,9 @@ Used to customize label in table header for spesific cell identified by `uniqid`
 <table width="100%">
 <thead>
 <tr>
-<th>table.cell.content.[uniqid]</th>
+<td>
+
+**#table.cell.content.[uniqid]**</td>
 </tr>
 </thead>
 <tbody>
@@ -2823,7 +2895,9 @@ This slot has 2 arguments:
 <table width="100%">
 <thead>
 <tr>
-<th>grid.content.header.[uniqid]</th>
+<td>
+
+**#grid.content.header.[uniqid]**</td>
 </tr>
 </thead>
 <tbody>
@@ -2853,7 +2927,9 @@ Used to customize label for spesific header identified by `uniqid`
 <table width="100%">
 <thead>
 <tr>
-<th>grid.content.body.[uniqid]</th>
+<td>
+
+**#grid.content.body.[uniqid]**</td>
 </tr>
 </thead>
 <tbody>
@@ -2890,7 +2966,9 @@ This slot has 2 arguments:
 <table width="100%">
 <thead>
 <tr>
-<th>table.cell.skeleton.[col.uniqid]</th>
+<td>
+
+**#table.cell.skeleton.[col.uniqid]**</td>
 </tr>
 </thead>
 <tbody>
@@ -2920,7 +2998,9 @@ Used to render skeleton loader for spesific column identified by `col.uniqid`
 <table width="100%">
 <thead>
 <tr>
-<th>grid.skeleton.body.[col.uniqid]</th>
+<td>
+
+**#grid.skeleton.body.[col.uniqid]**</td>
 </tr>
 </thead>
 <tbody>

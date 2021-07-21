@@ -72,7 +72,7 @@
         </thead>
         <tbody v-if="isLoading && !disableSkeletonLoader">
           <slot name="table.row.skeleton">
-            <tr v-for="row in per_page" :key="'table-loader-' + row">
+            <tr v-for="row in parseInt(per_page)" :key="'table-loader-' + row">
               <td v-if="withSelect">
                 <slot name="table.cell.skeleton.checkbox">
                   <div class="mx-auto animate-pulse h-6 w-6 bg-gray-400 rounded" />
@@ -564,7 +564,7 @@ export default {
     checkedAll: {
       get() {
         let filtered = filter(this.items, this.selectedKey);
-        return filtered.length === this.items.length;
+        return this.items.length > 0 ? filtered.length === this.items.length : false;
       },
       set(newValue) {
         forEach(this.items, (value) => {
