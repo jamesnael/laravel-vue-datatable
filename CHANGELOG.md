@@ -1,4 +1,23 @@
-# [v1.0.3](https://github.com/razztyfication/laravue-datatable/tree/master)
+# [v1.0.4](https://github.com/razztyfication/laravue-datatable/tree/master)
+
+- Add new props and slots
+
+### Props
+
+- loader-type
+- loading-bar-class
+- loading-bar-style
+
+### v-model
+
+- loading
+
+### Slots
+
+- table.cell.content.checkbox
+- grid.content.body.checkbox
+
+# [v1.0.3](https://github.com/razztyfication/laravue-datatable/tree/1.0.3)
 
 - Bug Fix Skeleton loader not loop by rows per page
 

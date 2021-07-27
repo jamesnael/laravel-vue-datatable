@@ -168,6 +168,34 @@ Please refer to [`columns`](#columns-props) props for detailed usage and explana
 Your v-model to get selected row if you use `with-select` props.
 </td>
 </tr>
+<tr>
+<td><strong>loading</strong></td>
+<td align="center"><em>Boolean</em></td>
+<td align="center">Optional</td>
+<td>
+
+```html
+<template>
+  <laravel-vue-datatables
+    route="https:://mydomain.com/table"
+    v-model:columns="columns"
+    v-model:loading="yourLoadingModel"
+  />
+
+  <!-- for Vue 2 component
+
+  <laravel-vue-datatables
+    route="https:://mydomain.com/table"
+    :columns.sync="columns"
+    :loading.sync="yourLoadingModel"
+  />
+  
+  -->
+</template>
+```
+Get loading state from datatable
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -435,6 +463,83 @@ Example as Object
 
 `false`</td>
 <td>Disable table loading message</td>
+</tr>
+<tr>
+<td><strong>loader-type</strong></td>
+<td align="center"><em>String</em></td>
+<td align="center">Optional</td>
+<td align="center">
+
+`false`</td>
+<td>
+
+Accept `'block'`, `'bar'`, `'dual'`
+
+`'block'` will show loading message top of datatable 
+
+`'bar'` will show loading bar on top of datatable 
+
+`'dual'` will show loading bar and loading message on top of datatable 
+</td>
+</tr>
+<tr>
+<td><strong>loading-bar-class</strong></td>
+<td align="center">[ <em>String, Array, Object</em> ]</td>
+<td align="center">Optional</td>
+<td>
+
+```json
+[
+  "bg-blue-400",
+]
+```
+</td>
+<td>
+
+Example as String:
+
+```json
+"bg-red-400"
+```
+Example as Array:
+```json
+[
+  "bg-red-400",
+]
+```
+Example as Object:
+```json
+{
+  "bg-red-400": true
+}
+```
+</td>
+</tr>
+<tr>
+<td><strong>loading-bar-style</strong></td>
+<td align="center">[ <em>String, Array, Object</em> ]</td>
+<td align="center">Optional</td>
+<td align="center"></td>
+<td>
+
+Example as String:
+```json
+"background-color: red"
+```
+
+Example as Array:
+```json
+[
+  "background-color: red"
+]
+```
+Example as Object:
+```json
+{
+  "backgroundColor": "red"
+}
+```
+</td>
 </tr>
 <tr>
 <td><strong>disable-skeleton-loader</strong></td>
@@ -2858,6 +2963,40 @@ Used to customize label in table header for spesific cell identified by `uniqid`
 <tr>
 <td>
 
+**#table.cell.content.checkbox**</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to customize checkbox for checkbox column.
+
+This slot has 1 arguments:
+
+`row` is data object
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #table.cell.content.checkbox="{ row }">
+  <input type="checkbox" v-model="row.isSelected" class="form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none">
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<td>
+
 **#table.cell.content.[uniqid]**</td>
 </tr>
 </thead>
@@ -2916,6 +3055,40 @@ Used to customize label for spesific header identified by `uniqid`
 ```html
 <template #grid.content.header.fullName="{ label }">
   <h1 class="text-blue-400">{{ label }}</h1>
+</template>
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+<thead>
+<tr>
+<td>
+
+**#grid.content.body.checkbox**</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+Used to customize checkbox for checkbox line.
+
+This slot has 1 arguments:
+
+`row` is data object
+
+</td>
+</tr>
+<tr>
+<td>
+
+```html
+<template #grid.content.body.checkbox="{ row }">
+  <input type="checkbox" v-model="row.isSelected" class="form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none">
 </template>
 ```
 

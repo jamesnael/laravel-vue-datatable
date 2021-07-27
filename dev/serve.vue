@@ -93,7 +93,8 @@ export default defineComponent({
           classes: 'py-2',
           headerClass: 'py-4',
         }
-      ]
+      ],
+      loading: false,
     }
   },
   methods: {
@@ -119,12 +120,19 @@ export default defineComponent({
 <template>
   <div id="app">
     <laravel-vue-datatables
-      route="https://laravel-vue-datatables.herokuapp.com/api/table"
+      route="http://laravel-demo.local/api/table"
       v-model:columns="columns"
       with-select
       v-model:checked="selected"
+      grid="always"
       selected-key="isSelected"
+      loader-type="dual"
+      :loading-bar-style="{ 'backgroundColor': 'yellow' }"
+      v-model:loading="loading"
     >
+      <template #grid.content.body.checkbox="{ row }">
+        <input type="checkbox" v-model="row.isSelected" :disabled="loading" class="form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none">
+      </template>
       <template #label.no-record>
         <span>labelNoRecord</span>
       </template>
@@ -144,6 +152,7 @@ export default defineComponent({
         <span>beforeButton</span>
       </template>
       <template #after.reload-button>
+        <!-- <button type="button" @click="loading = !loading">Loading</button> -->
         <span>afterButton</span>
       </template>
       <template #before.pagination-label>

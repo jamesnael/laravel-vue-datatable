@@ -70,8 +70,13 @@
             </laravel-vue-datatables-cell-header>
           </tr>
         </thead>
-        <tbody v-if="isLoading && !disableSkeletonLoader">
-          <slot name="table.row.skeleton">
+        <tbody v-if="isLoading">
+          <tr v-if="!disableLoader && (loaderType === 'dual' || loaderType === 'bar')" class="leading-0">
+            <td :colspan="withSelect ? columns.length + 1 : columns.length" class="overflow-hidden p-0">
+              <div :class="setupLoadingBarClass" :style="loadingBarStyle"></div>
+            </td>
+          </tr>
+          <slot v-if="!disableSkeletonLoader" name="table.row.skeleton">
             <tr v-for="row in parseInt(per_page)" :key="'table-loader-' + row">
               <td v-if="withSelect">
                 <slot name="table.cell.skeleton.checkbox">
@@ -105,7 +110,9 @@
           <tr v-for="(item, idx) in items" :key="'table-row-' + idx" class="group">
             <td v-if="withSelect" :class="setupHoverClass">
               <label class="flex justify-center">
-                <input type="checkbox" v-model="item[selectedKey]" :class="initClass(checkboxClass)" :style="checkboxStyle" @change="updateCheckedModel()" :disabled="isLoading">
+                <slot :name="'table.cell.content.checkbox'" :row="item" :class="initClass(checkboxClass)" :style="checkboxStyle">
+                  <input type="checkbox" v-model="item[selectedKey]" :class="initClass(checkboxClass)" :style="checkboxStyle" :disabled="isLoading">
+                </slot>
                 <span />
               </label>
             </td>
@@ -126,7 +133,7 @@
           <slot name="table.row.append" :items="items" />
         </tbody>
       </table>
-      <div v-if="isLoading && !disableLoader" class="absolute inset-0 bg-gray-300 bg-opacity-30 h-full flex flex-col justify-center">
+      <div v-if="isLoading && !disableLoader && (loaderType === 'dual' || loaderType === 'block')" class="absolute inset-0 bg-gray-300 bg-opacity-30 h-full flex flex-col justify-center">
         <laravel-vue-datatables-loader>
           <template v-slot:[`loader`]>
             <slot name="loader" />
@@ -146,7 +153,9 @@
               </span>
             </slot>
             <label class="flex justify-center">
-              <input type="checkbox" v-model="item[selectedKey]" :class="initClass(checkboxClass)" :style="checkboxStyle" @change="updateCheckedModel()" :disabled="isLoading">
+              <slot :name="'grid.content.body.checkbox'" :row="item" :class="initClass(checkboxClass)" :style="checkboxStyle">
+                <input type="checkbox" v-model="item[selectedKey]" :class="initClass(checkboxClass)" :style="checkboxStyle" :disabled="isLoading">
+              </slot>
               <span />
             </label>
           </div>
@@ -179,27 +188,32 @@
           </slot>
         </div>
       </div>
-      <div v-else-if="isLoading && !disableSkeletonLoader" :class="'grid gap-4 grid-cols-1 md:grid-cols-' + gridRowCount">
-        <div v-for="n in gridRowCount" :key="'grid-loader-' + n">
-          <slot name="grid.skeleton.container">
-            <div class="shadow-lg p-4 border border-gray-400">
-              <div class="flex flex-col space-y-2">
-                <div v-if="withSelect">
-                  <slot name="grid.skeleton.body.checkbox">
-                    <div class="mx-auto animate-pulse h-6 w-6 bg-gray-400 rounded" />
-                  </slot>
-                </div>
-                <div v-for="col in columns" :key="'grid-loader-' + n + '-' + col.uniqid">
-                  <slot :name="'grid.skeleton.body.' + col.uniqid" :column="col">
-                    <div class="mx-auto animate-pulse h-6 bg-gray-400 rounded w-10/12" />
-                  </slot>
+      <div v-else-if="isLoading">
+        <div v-if="loaderType === 'dual' || loaderType === 'bar'" class="w-full overflow-hidden">
+          <div :class="setupLoadingBarClass" :style="loadingBarStyle"></div>
+        </div>
+        <div v-if="!disableSkeletonLoader" :class="'grid gap-4 grid-cols-1 md:grid-cols-' + gridRowCount">
+          <div v-for="n in gridRowCount" :key="'grid-loader-' + n">
+            <slot name="grid.skeleton.container">
+              <div class="shadow-lg p-4 border border-gray-400">
+                <div class="flex flex-col space-y-2">
+                  <div v-if="withSelect">
+                    <slot name="grid.skeleton.body.checkbox">
+                      <div class="mx-auto animate-pulse h-6 w-6 bg-gray-400 rounded" />
+                    </slot>
+                  </div>
+                  <div v-for="col in columns" :key="'grid-loader-' + n + '-' + col.uniqid">
+                    <slot :name="'grid.skeleton.body.' + col.uniqid" :column="col">
+                      <div class="mx-auto animate-pulse h-6 bg-gray-400 rounded w-10/12" />
+                    </slot>
+                  </div>
                 </div>
               </div>
-            </div>
-          </slot>
+            </slot>
+          </div>
         </div>
       </div>
-      <div v-if="isLoading && !disableLoader" class="absolute inset-0 bg-gray-300 bg-opacity-30 h-full flex flex-col justify-center">
+      <div v-if="isLoading && !disableLoader && (loaderType === 'dual' || loaderType === 'block')" class="absolute inset-0 bg-gray-300 bg-opacity-30 h-full flex flex-col justify-center">
         <laravel-vue-datatables-loader>
           <template v-slot:[`loader`]>
             <slot name="loader" />
@@ -231,7 +245,7 @@
                 <span class="whitespace-nowrap font-medium">{{ rowsPerPageLabel }}</span>
               </slot>
               <select :class="initClass(rowsPerPageClass)" :style="rowsPerPageStyle" v-model="per_page" @change="updatePerPage()" :disabled="isLoading">
-                <option v-for="(option, idx) in rowsPerPageOptions" :key="'goto-option-' + idx" :value="option">{{ option }}</option>
+                <option v-for="(option, idx) in rowsPerPageOptions" :key="'page-rows-option-' + idx" :value="option">{{ option }}</option>
               </select>
             </div>
             <div class="flex-1 md:flex-initial flex flex-row space-x-2 content-center items-center">
@@ -293,6 +307,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.progress-bar {
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0078d4', endColorstr='#0078d4', GradientType=1 );
+  height: 4px;
+  -webkit-animation: progressBarAnimation 1.5s linear infinite;
+	animation: progressBarAnimation 1.5s linear infinite;
+}
+
+@keyframes progressBarAnimation {
+	0% {
+		left: -50%;
+	}
+	100% {
+		left: 100%;
+	}
+}
 </style>
 
 <script>
@@ -355,6 +385,18 @@ export default {
       ]
     },
     disableLoader: { type: Boolean, default: () => false },
+    loaderType: {
+      default: () => 'block',
+      validator(value) {
+        return ['block', 'bar', 'dual'].includes(value);
+      }
+    },
+    loading: { type: Boolean, default: () => false },
+    loadingBarClass: {
+      type: [Array, String, Object],
+      default: () => []
+    },
+    loadingBarStyle: [Array, String, Object],
     disableSkeletonLoader: { type: Boolean, default: () => false },
     noDataLabel: { type: String, default: () => 'No records found.' },
     noResultLabel: { type: String, default: () => 'No records matching your criteria.' },
@@ -558,6 +600,7 @@ export default {
       total: 0,
       page: 1,
       last_page: 1,
+      selected: [],
     }
   },
   computed: {
@@ -577,6 +620,18 @@ export default {
       newClass['py-2 pl-8 pr-4 w-3/4 md:w-full'] = true;
       return newClass;
     },
+    setupLoadingBarClass() {
+      if (this.loadingBarClass.length === 0) {
+        let newClass = ["w-1/2 relative progress-bar"];
+        if (!this.loadingBarStyle) {
+          newClass['bg-blue-400'];
+        }
+        return newClass
+      }
+      let newClass = this.initClass(this.loadingBarClass);
+      newClass["w-1/2 relative progress-bar"] = true;
+      return newClass;
+    },
     setupHoverClass() {
       if (this.hoverable) {
         if (isString(this.hoverClass)) {
@@ -587,9 +642,6 @@ export default {
         return newClass;
       }
       return 'text-center';
-    },
-    rowChecked() {
-      return filter(this.items, this.selectedKey);
     },
     sortOrder() {
       let sortOrder = [];
@@ -620,6 +672,17 @@ export default {
       }
       return this.query;
     },
+    selectedRows() {
+      return filter(this.items, this.selectedKey);
+    }
+  },
+  watch: {
+    isLoading(newValue) {
+      this.$emit('update:loading', newValue);
+    },
+    selectedRows(newValue) {
+      this.$emit('update:checked', newValue);
+    }
   },
   mounted() {
     this.per_page = this.rowsPerPage;
@@ -661,9 +724,6 @@ export default {
         }
       }, []);
       return this.getPathUri(uri) + '?' + join(paramsArray, '&');
-    },
-    updateCheckedModel() {
-      this.$emit('update:checked', this.rowChecked);
     },
     searchData() {
       setTimeout(() => {
